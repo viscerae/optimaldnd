@@ -19,3 +19,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('footer').classList.toggle('dark-mode');
     });
 });
+

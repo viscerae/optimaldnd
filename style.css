@@ -125,6 +125,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
+/* Add some media queries for responsiveness */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -133,4 +134,3 @@ input:checked + .slider:before {
         position: static;
     }
 }
-

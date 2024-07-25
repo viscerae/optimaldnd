@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Inline style for immediate theme application -->
+    <style id="theme-styles">
+        /* Default light mode styles */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header, footer {
+            background-color: #333;
+        }
+        nav {
+            background-color: #444;
+        }
+
+        /* Dark mode styles */
+        .dark-mode body {
+            background-color: #181818;
+            color: #f0f0f0;
+        }
+        .dark-mode header, .dark-mode footer {
+            background-color: #222;
+        }
+        .dark-mode nav {
+            background-color: #333;
+        }
+    </style>
+
     <script>
         (function() {
             const darkTheme = 'dark-mode'; // Class name used for dark theme
             const selectedTheme = localStorage.getItem('selected-theme');
+            const themeStyles = document.getElementById('theme-styles');
+
             if (selectedTheme) {
                 document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+                // Update the inline style based on the saved theme
+                themeStyles.textContent = selectedTheme === 'dark'
+                    ? `.dark-mode body { background-color: #181818; color: #f0f0f0; } .dark-mode header, .dark-mode footer { background-color: #222; } .dark-mode nav { background-color: #333; }`
+                    : `body { background-color: #f0f0f0; color: #333; } header, footer { background-color: #333; } nav { background-color: #444; }`;
             }
-            
+
             // Ensure the toggle reflects the current theme
             document.addEventListener('DOMContentLoaded', function() {
                 const toggle = document.getElementById('darkModeToggle');
@@ -18,11 +51,17 @@
                         const isDarkMode = this.checked;
                         document.body.classList.toggle(darkTheme, isDarkMode);
                         localStorage.setItem('selected-theme', isDarkMode ? 'dark' : 'light');
+
+                        // Update inline styles when toggling
+                        themeStyles.textContent = isDarkMode
+                            ? `.dark-mode body { background-color: #181818; color: #f0f0f0; } .dark-mode header, .dark-mode footer { background-color: #222; } .dark-mode nav { background-color: #333; }`
+                            : `body { background-color: #f0f0f0; color: #333; } header, footer { background-color: #333; } nav { background-color: #444; }`;
                     });
                 }
             });
         })();
     </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optimal DnD</title>

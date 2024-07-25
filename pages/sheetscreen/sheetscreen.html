@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DnD Player Sheets</title>
+    <link rel="stylesheet" href="sheetscreen_style.css">
+</head>
+<body>
+
+    <div class="button-container">
+        <button class="button" onclick="addCard()">Add Player Card</button>
+        <button class="button" onclick="saveCards()">Save Cards</button>
+        <input type="file" id="load-file" style="display: none;" onchange="loadCards(this)">
+        <button class="button" onclick="document.getElementById('load-file').click()">Load Cards</button>
+    </div>
+
+    <ul id="cards-container"></ul>
+
+    <template id="card-template">
+        <li class="card">
+            <div class="move-btns">
+                <button onclick="moveCard(this, -1)">&#9664;</button>
+                <button onclick="moveCard(this, 1)">&#9654;</button>
+            </div>
+            <button class="delete-btn" onclick="deleteCard(this)">&times;</button>
+            <button class="settings-btn" onclick="toggleSettingsMenu(this)">&#9881;</button>
+            <div class="settings-menu">
+                <div class="color-picker">
+                    <div style="background-color: #28a745;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #007bff;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #ffc107;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #dc3545;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #6c757d;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #343a40;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #17a2b8;" onclick="changeCardAccentColor(this)"></div>
+                    <div style="background-color: #fd7e14;" onclick="changeCardAccentColor(this)"></div>
+                </div>
+            </div>
+            <input type="text" class="editable-title" value="Character Name" oninput="updateCardTitle(this)">
+            <div class="input-group">
+                <input type="text" placeholder="Class" class="class">
+                <input type="text" placeholder="Level" class="level">
+            </div>
+            <input type="text" placeholder="Race" class="race">
+            <input type="text" placeholder="Background" class="background">
+            <input type="text" placeholder="Alignment" class="alignment">
+            <textarea placeholder="Abilities" class="abilities"></textarea>
+            <textarea placeholder="Equipment" class="equipment"></textarea>
+            <textarea placeholder="Notes" class="notes"></textarea>
+            <div class="health-container">
+                <input type="text" class="health-value" value="100/100" oninput="updateHealth(this)">
+                <div>
+                    <button onclick="adjustHealth(this, -1)">&#8722;</button>
+                    <button onclick="adjustHealth(this, 1)">&#43;</button>
+                </div>
+            </div>
+            <div class="health-squares"></div>
+        </li>
+    </template>
+
+    <script src="sheetscreen.js"></script>
+</body>
+</html>

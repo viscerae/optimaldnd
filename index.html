@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optimal DnD</title>
-    <!-- JavaScript to handle theme loading -->
+
+    <!-- Critical CSS to avoid flickering -->
+    <style id="critical-styles">
+        /* Default light mode styles */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header, footer {
+            background-color: #333;
+        }
+        nav {
+            background-color: #444;
+        }
+
+        /* Dark mode styles */
+        .dark-mode body {
+            background-color: #181818;
+            color: #f0f0f0;
+        }
+        .dark-mode header, .dark-mode footer {
+            background-color: #222;
+        }
+        .dark-mode nav {
+            background-color: #333;
+        }
+    </style>
+
+    <!-- JavaScript to dynamically apply the theme -->
     <script>
         (function() {
-            const darkTheme = 'dark-mode'; // Class name used for dark theme
+            const darkThemeClass = 'dark-mode'; // Class name used for dark theme
             const themeLink = document.createElement('link');
             themeLink.rel = 'stylesheet';
             themeLink.id = 'theme-styles';
@@ -15,10 +44,10 @@
             const selectedTheme = localStorage.getItem('selected-theme');
             if (selectedTheme === 'dark') {
                 themeLink.href = '/css/styles-dark.css';
-                document.body.classList.add(darkTheme);
+                document.body.classList.add(darkThemeClass);
             } else {
                 themeLink.href = '/css/styles-light.css';
-                document.body.classList.remove(darkTheme);
+                document.body.classList.remove(darkThemeClass);
             }
 
             document.head.appendChild(themeLink);
@@ -32,11 +61,11 @@
                         const isDarkMode = this.checked;
                         if (isDarkMode) {
                             themeLink.href = '/css/styles-dark.css';
-                            document.body.classList.add(darkTheme);
+                            document.body.classList.add(darkThemeClass);
                             localStorage.setItem('selected-theme', 'dark');
                         } else {
                             themeLink.href = '/css/styles-light.css';
-                            document.body.classList.remove(darkTheme);
+                            document.body.classList.remove(darkThemeClass);
                             localStorage.setItem('selected-theme', 'light');
                         }
                     });
@@ -44,8 +73,6 @@
             });
         })();
     </script>
-    <!-- Default light theme CSS to avoid flickering -->
-    <link rel="stylesheet" href="/css/styles-light.css">
 </head>
 <body>
     <header>

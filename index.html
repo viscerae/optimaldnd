@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const darkTheme = 'dark-mode'; // Class name used for dark theme
+            const selectedTheme = localStorage.getItem('selected-theme');
+            if (selectedTheme) {
+                document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+            }
+            
+            // Ensure the toggle reflects the current theme
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggle = document.getElementById('darkModeToggle');
+                if (toggle) {
+                    toggle.checked = selectedTheme === 'dark';
+                    toggle.addEventListener('change', function() {
+                        const isDarkMode = this.checked;
+                        document.body.classList.toggle(darkTheme, isDarkMode);
+                        localStorage.setItem('selected-theme', isDarkMode ? 'dark' : 'light');
+                    });
+                }
+            });
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optimal DnD</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/script.js"></script>
 </head>
 <body>
     <header>
@@ -37,7 +58,6 @@
     <footer>
         <p>&copy; 2024 Optimal DnD Project</p>
     </footer>
-
-    
+    <script src="/js/script.js"></script>
 </body>
 </html>

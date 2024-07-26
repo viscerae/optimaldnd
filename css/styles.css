@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.1s, color 0.1s;
 }
 body.dark-mode {
     background-color: #181818;
@@ -16,7 +16,7 @@ header {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: background-color 0.1s;
 }
 header.dark-mode {
     background-color: #222;
@@ -26,7 +26,7 @@ nav {
     justify-content: center;
     background-color: #444;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: background-color 0.1s;
 }
 nav.dark-mode {
     background-color: #333;
@@ -45,7 +45,7 @@ nav ul li a {
     padding: 15px 20px;
     color: white;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.1s;
 }
 nav ul li a:hover {
     background-color: #555;
@@ -58,7 +58,7 @@ nav ul li ul {
     background-color: #444;
     padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: background-color 0.1s;
 }
 nav ul li ul li a {
     padding: 10px 20px;
@@ -73,7 +73,7 @@ nav ul li:hover ul {
 main {
     padding: 40px 20px;
     text-align: center;
-    transition: color 0.3s;
+    transition: color 0.1s;
 }
 footer {
     background-color: #333;
@@ -83,7 +83,7 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    transition: background-color 0.3s;
+    transition: background-color 0.1s;
 }
 footer.dark-mode {
     background-color: #222;
@@ -105,7 +105,7 @@ footer.dark-mode {
     background-color: #ccc;
     border-radius: 34px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.1s;
 }
 .slider:before {
     content: "";

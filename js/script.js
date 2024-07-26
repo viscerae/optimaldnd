@@ -1,23 +1,11 @@
 function getUserPreference() {
-    return localStorage.getItem("theme") || "system";
+    // Always return dark mode preference
+    return "dark";
 }
 
 function saveUserPreference(userPreference) {
+    // Save dark mode preference
     localStorage.setItem("theme", userPreference);
-}
-
-function getAppliedMode(userPreference) {
-    if (userPreference === "light") {
-        return "light";
-    }
-    if (userPreference === "dark") {
-        return "dark";
-    }
-    // system
-    if (matchMedia("(prefers-color-scheme: light)").matches) {
-        return "light";
-    }
-    return "dark";
 }
 
 function setAppliedMode(mode) {
@@ -25,19 +13,11 @@ function setAppliedMode(mode) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.getElementById('darkModeToggle');
-    let userPreference = getUserPreference();
+    const userPreference = getUserPreference();
 
-    setAppliedMode(getAppliedMode(userPreference));
+    // Set the applied mode based on the user preference
+    setAppliedMode(userPreference);
 
-    if (userPreference === "dark") {
-        toggle.checked = true;
-    }
-
-    toggle.addEventListener('change', function() {
-        const newUserPref = toggle.checked ? "dark" : "light";
-        userPreference = newUserPref;
-        saveUserPreference(newUserPref);
-        setAppliedMode(getAppliedMode(newUserPref));
-    });
+    // Ensure the preference is saved
+    saveUserPreference(userPreference);
 });

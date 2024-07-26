@@ -1,131 +1,115 @@
+/* Base styles */
+
+:root {
+    --background: #181818;
+    --text: #f0f0f0;
+    --header-bg: #222;
+    --nav-bg: #333;
+    --footer-bg: #222;
+    --link-color: #007bff;
+    --link-hover-bg: #555;
+}
+
+
+/* Apply dark mode by default */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-    transition: background-color 0.1s, color 0.1s;
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
 }
-body.dark-mode {
-    background-color: #181818;
-    color: #f0f0f0;
+
+header,
+nav,
+footer {
+    transition: background-color 0.3s;
 }
+
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-bg);
+    color: var(--text);
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.1s;
 }
-header.dark-mode {
-    background-color: #222;
-}
+
 nav {
     display: flex;
     justify-content: center;
-    background-color: #444;
+    background-color: var(--nav-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.1s;
 }
-nav.dark-mode {
-    background-color: #333;
-}
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
+
 nav ul li {
     position: relative;
 }
+
 nav ul li a {
     display: block;
     padding: 15px 20px;
-    color: white;
+    color: var(--text);
     text-decoration: none;
-    transition: background-color 0.1s;
+    transition: background-color 0.3s;
 }
+
 nav ul li a:hover {
-    background-color: #555;
+    background-color: var(--link-hover-bg);
 }
+
 nav ul li ul {
     display: none;
     position: absolute;
     top: 50px;
     left: 0;
-    background-color: #444;
+    background-color: var(--nav-bg);
     padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.1s;
 }
+
 nav ul li ul li a {
     padding: 10px 20px;
     white-space: nowrap;
 }
+
 nav ul li ul li a:hover {
-    background-color: #555;
+    background-color: var(--link-hover-bg);
 }
+
 nav ul li:hover ul {
     display: block;
 }
+
 main {
     padding: 40px 20px;
     text-align: center;
-    transition: color 0.1s;
 }
+
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--footer-bg);
+    color: var(--text);
     text-align: center;
     padding: 10px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
-    transition: background-color 0.1s;
-}
-footer.dark-mode {
-    background-color: #222;
-}
-.switch {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-}
-.switch input {
-    display: none;
-}
-.slider {
-    position: relative;
-    width: 60px;
-    height: 34px;
-    background-color: #ccc;
-    border-radius: 34px;
-    cursor: pointer;
-    transition: background-color 0.1s;
-}
-.slider:before {
-    content: "";
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background-color: white;
-    border-radius: 50%;
-    top: 4px;
-    left: 4px;
-    transition: transform 0.3s;
-}
-input:checked + .slider {
-    background-color: #666;
-}
-input:checked + .slider:before {
-    transform: translateX(26px);
 }
 
-/* Add some media queries for responsiveness */
+
+/* Switch styles (Removed since dark mode is always applied) */
+
+
+/* Media queries */
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -133,47 +117,4 @@ input:checked + .slider:before {
     nav ul li ul {
         position: static;
     }
-}
-/* Add the following styles */
-.login-container {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.login-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.login-container label {
-    margin-bottom: 5px;
-}
-
-.login-container input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.login-container button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.login-container button:hover {
-    background-color: #45a049;
 }

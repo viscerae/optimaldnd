@@ -1,31 +1,43 @@
+function getUserPreference() {
+    return localStorage.getItem("theme") || "system";
+}
+
+function saveUserPreference(userPreference) {
+    localStorage.setItem("theme", userPreference);
+}
+
+function getAppliedMode(userPreference) {
+    if (userPreference === "light") {
+        return "light";
+    }
+    if (userPreference === "dark") {
+        return "dark";
+    }
+    // system
+    if (matchMedia("(prefers-color-scheme: light)").matches) {
+        return "light";
+    }
+    return "dark";
+}
+
+function setAppliedMode(mode) {
+    document.documentElement.dataset.appliedMode = mode;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.getElementById('darkModeToggle');
+    let userPreference = getUserPreference();
 
-    // Check localStorage for the dark mode preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        document.querySelector('header').classList.add('dark-mode');
-        document.querySelector('nav').classList.add('dark-mode');
-        document.querySelector('footer').classList.add('dark-mode');
+    setAppliedMode(getAppliedMode(userPreference));
+
+    if (userPreference === "dark") {
         toggle.checked = true;
     }
 
     toggle.addEventListener('change', function() {
-        if (toggle.checked) {
-            document.body.classList.add('dark-mode');
-            document.querySelector('header').classList.add('dark-mode');
-            document.querySelector('nav').classList.add('dark-mode');
-            document.querySelector('footer').classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            document.body.classList.remove('dark-mode');
-            document.querySelector('header').classList.remove('dark-mode');
-            document.querySelector('nav').classList.remove('dark-mode');
-            document.querySelector('footer').classList.remove('dark-mode');
-            localStorage.setItem('darkMode', 'disabled');
-        }
+        const newUserPref = toggle.checked ? "dark" : "light";
+        userPreference = newUserPref;
+        saveUserPreference(newUserPref);
+        setAppliedMode(getAppliedMode(newUserPref));
     });
-
-    // Remove preload class after dark mode has been applied
-    document.documentElement.classList.remove('preload-dark-mode');
 });

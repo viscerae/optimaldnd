@@ -1,36 +1,43 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown menu functionality
-    const dropdowns = document.querySelectorAll('nav ul li');
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('mouseover', function() {
-            this.querySelector('ul').style.display = 'block';
-        });
-        dropdown.addEventListener('mouseout', function() {
-            this.querySelector('ul').style.display = 'none';
-        });
-    });
+function getUserPreference() {
+    return localStorage.getItem("theme") || "system";
+}
 
-    // Dark mode toggle functionality
-    const toggle = document.getElementById('darkModeToggle');
+function saveUserPreference(userPreference) {
+    localStorage.setItem("theme", userPreference);
+}
 
-    // Function to apply dark mode
-    function applyDarkMode(isEnabled) {
-        document.body.classList.toggle('dark-mode', isEnabled);
-        document.querySelector('header').classList.toggle('dark-mode', isEnabled);
-        document.querySelector('nav').classList.toggle('dark-mode', isEnabled);
-        document.querySelector('footer').classList.toggle('dark-mode', isEnabled);
+function getAppliedMode(userPreference) {
+    if (userPreference === "light") {
+        return "light";
     }
+    if (userPreference === "dark") {
+        return "dark";
+    }
+    // system
+    if (matchMedia("(prefers-color-scheme: light)").matches) {
+        return "light";
+    }
+    return "dark";
+}
 
-    // Check localStorage for dark mode preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        applyDarkMode(true);
+function setAppliedMode(mode) {
+    document.documentElement.dataset.appliedMode = mode;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('darkModeToggle');
+    let userPreference = getUserPreference();
+
+    setAppliedMode(getAppliedMode(userPreference));
+
+    if (userPreference === "dark") {
         toggle.checked = true;
     }
 
-    // Toggle dark mode on change event
     toggle.addEventListener('change', function() {
-        const isDarkMode = toggle.checked;
-        applyDarkMode(isDarkMode);
-        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+        const newUserPref = toggle.checked ? "dark" : "light";
+        userPreference = newUserPref;
+        saveUserPreference(newUserPref);
+        setAppliedMode(getAppliedMode(newUserPref));
     });
 });

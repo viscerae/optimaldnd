@@ -1,71 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="preload">
+<html lang="en" class="dark-mode">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DnD Player Sheets</title>
     <link rel="stylesheet" href="/css/sheetscreen_style.css">
-    <style>
-         :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --header-bg-color: #f0f0f0;
-            --nav-bg-color: #f8f8f8;
-            --footer-bg-color: #f0f0f0;
-        }
-        
-        .dark-mode {
-            --bg-color: #181818;
-            --text-color: #f0f0f0;
-            --header-bg-color: #222;
-            --nav-bg-color: #333;
-            --footer-bg-color: #222;
-        }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        
-        header {
-            background-color: var(--header-bg-color);
-        }
-        
-        nav {
-            background-color: var(--nav-bg-color);
-        }
-        
-        footer {
-            background-color: var(--footer-bg-color);
-        }
-        
-        .preload body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        
-        .preload header {
-            background-color: var(--header-bg-color);
-        }
-        
-        .preload nav {
-            background-color: var(--nav-bg-color);
-        }
-        
-        .preload footer {
-            background-color: var(--footer-bg-color);
-        }
-    </style>
+
 </head>
 
 <body>
     <header>
         <h1>DnD Player Sheets</h1>
-        <div class="switch">
-            <input type="checkbox" id="darkModeToggle">
-            <label for="darkModeToggle" class="slider"></label>
-        </div>
     </header>
     <div class="button-container">
         <button class="button" onclick="addCard()">Add Player Card</button>
@@ -119,37 +65,6 @@
     </template>
 
     <script src="/js/sheetscreen.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function applyDarkMode() {
-                document.documentElement.classList.add('dark-mode');
-            }
-
-            function removeDarkMode() {
-                document.documentElement.classList.remove('dark-mode');
-            }
-
-            const darkModeToggle = document.getElementById('darkModeToggle');
-            const darkMode = localStorage.getItem('darkMode');
-
-            if (darkMode === 'enabled') {
-                applyDarkMode();
-                darkModeToggle.checked = true;
-            }
-
-            darkModeToggle.addEventListener('change', function() {
-                if (darkModeToggle.checked) {
-                    applyDarkMode();
-                    localStorage.setItem('darkMode', 'enabled');
-                } else {
-                    removeDarkMode();
-                    localStorage.setItem('darkMode', 'disabled');
-                }
-            });
-
-            document.documentElement.classList.remove('preload');
-        });
-    </script>
 </body>
 
 </html>

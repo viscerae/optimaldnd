@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Aarakocra',
             type:'Medium Humanoid (Aarakocra), Neutral Good',
-            image: 'https://via.placeholder.com/150', // Replace with actual image URL
+            image: '/images/monsterlist/Aarakocra_Simulacrum.png', // Replace with actual image URL
             stats: `
                 <strong>Armor Class:</strong> 12<br>
                 <strong>Hit Points:</strong> 13 (3d8)<br>
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Aarakocra Simulacrum',
             type: 'Medium Humanoid (Aarakocra), Neutral Good',
-            image: 'https://via.placeholder.com/150', // Replace with actual image URL
+            image: '/images/monsterlist/Aarakocra_Simulacrum.png', // Replace with actual image URL
             stats: `
                 <strong>Armor Class:</strong> 12<br>
                 <strong>Hit Points:</strong> 6 (3d4)<br>

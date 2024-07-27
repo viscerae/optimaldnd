@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Aarakocra',
             type:'Medium Humanoid (Aarakocra), Neutral Good',
-            image: '/images/monsterlist/Aarakocra_Simulacrum.png', // Replace with actual image URL
+            image: '/images/monsterlist/Aarakocra.png', // Replace with actual image URL
             stats: `
                 <strong>Armor Class:</strong> 12<br>
                 <strong>Hit Points:</strong> 13 (3d8)<br>
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayMonsterDetails(monster) {
         monsterDetails.innerHTML = `
             <h2>${monster.name}</h2>
+            <h3>${monster.type}</h3>
             <img src="${monster.image}" alt="${monster.name}">
             <div class="tab">
                 <button class="tablinks" onclick="openTab(event, 'Stats')">Stats</button>

@@ -2,11 +2,11 @@
 
 __________________________________________________________________________________________________________________________________________________
 
-Project Name: Optimal DND
+# Optimal DND
 
 Author: Viscera
 
-This project has the following objectives:
+## This project has the following objectives:
 
 ✧ Build tools, wether they are in html on a website hosted through github pages or executables that are downloadable from here or my website.
 
@@ -19,7 +19,7 @@ This project has the following objectives:
 ✧ Finally the intended use for these tools will be mainly at the tabletop as an aid do the DM and PCs but you could try and use them online if you play using other tools like Roll20, I dont know how much this will help you there but give it a try and send me some feedback.
 __________________________________________________________________________________________________________________________________________________
 
-As a last note:
+## As a last note:
 
 ✧ Thank you in advance for any help and code corrections you send my way.
 
@@ -27,4 +27,18 @@ As a last note:
 
 ✧ Thanks to anyone who follows this page and uses these tools, lets make DnD easier for everyone.
 
+__________________________________________________________________________________________________________________________________________________
 
+## Development Plans
+
+✧ Implementation of new tools
+
+    ✧ Sheet Screen (tracking PCs sheets on your screen!) ✔️ 🐛 Bug hunting!
+
+    ✧ DnD Bestiary (Database of all monsters in DnD) ✔️ 🐛 Bug hunting!
+
+    ✧ Dice Roller (Roll all dice and all combinations of dice in a single place!)
+
+    ✧ Background generator (No imagination? No problem we handle it!)
+
+    ✧ Other Resources (Will be updated in the future.)

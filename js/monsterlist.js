@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const monsters = [
         {
             name: 'Aarakocra',
-            type; 'Medium Humanoid (Aarakocra), Neutral Good',
+            type:'Medium Humanoid (Aarakocra), Neutral Good',
             image: 'https://via.placeholder.com/150', // Replace with actual image URL
             stats: `
                 <strong>Armor Class:</strong> 12<br>

@@ -68,6 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
             `,
             info: ` None `,
         },
+        {
+            name: 'Aboleth',
+            type: 'Large Aberration (Aboleth), Lawful evil',
+            image: '#', // Replace with actual image URL
+            stats: `
+                <strong>Armor Class:</strong> 17 (natural armor) <br>
+                <strong>Hit Points:</strong> 135 (18d10 + 36)<br>
+                <strong>Speed:</strong> 10 ft., swim 40 ft.<br><br>
+                <strong>STR:</strong> 21 (+5) &nbsp;&nbsp; 
+                <strong>DEX:</strong> 9 (−1) &nbsp;&nbsp; 
+                <strong>CON:</strong> 15 (+2) &nbsp;&nbsp; 
+                <strong>INT:</strong> 18 (+4) &nbsp;&nbsp; 
+                <strong>WIS:</strong> 15 (+2) &nbsp;&nbsp; 
+                <strong>CHA:</strong> 18(+4) <br><br>
+                <strong>Saving Throws:</strong> Con +6, Int +8, Wis +6 <br>
+                <strong>Skills:</strong> History +12, Perception +10<br>
+                <strong>Senses:</strong> darkvision 120 ft., passive Perception 20<br>
+                <strong>Languages:</strong> Deep Speech, telepathy 120 ft.<br>
+                <strong>Challenge:</strong> 10 (5,900 XP)<br>
+            `,
+            info: ` None `,
+        },
         // Add more monsters as needed
     ];
 

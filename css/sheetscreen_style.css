@@ -125,9 +125,21 @@ body {
     width: calc(100% - 22px);
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #c50909;
+    border: 1px solid #666;
     border-radius: 4px;
-    background-color: #ff0000;
+    background-color: #444;
+    color: #e0e0e0;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.race select {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #444;
     color: #e0e0e0;
     font-size: 14px;
     transition: border-color 0.3s ease;

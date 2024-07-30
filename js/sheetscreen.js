@@ -99,7 +99,7 @@ function updateHealth(input) {
         const square = document.createElement('div');
         square.classList.add('health-square');
         if (i < current) {
-            if (healthPercentage < 10) {
+            if (healthPercentage < 15) {
                 square.classList.add('red');
             } else if (healthPercentage < 40) {
                 square.classList.add('yellow');

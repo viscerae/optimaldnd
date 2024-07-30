@@ -46,7 +46,7 @@ body {
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
-    cursor: move;
+    cursor: default;
     max-width: 100%;
 }
 
@@ -68,11 +68,11 @@ body {
 }
 
 .card .delete-btn {
-    right: 40px;
+    right: 10px;
 }
 
 .card .settings-btn {
-    right: 10px;
+    right: 40px;
 }
 
 .card .delete-btn:hover {

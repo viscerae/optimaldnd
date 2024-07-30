@@ -120,8 +120,8 @@ body {
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
-<!-- This is test number 3 -->
-.card select {
+/* This is test number 3 */
+#race {
     width: calc(100% - 22px);
     margin-bottom: 10px;
     padding: 10px;

@@ -120,6 +120,17 @@ body {
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
+.card select {
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #444;
+    color: #e0e0e0;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
 
 .card input:focus, .card textarea:focus {
     border-color: #007bff;

@@ -144,6 +144,18 @@ body {
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
+/* FORMATTING FOR BACKGROUND DROP DOWN MENU */
+.background select {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #444;
+    color: #e0e0e0;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
 
 .card input:focus, .card textarea:focus {
     border-color: #007bff;

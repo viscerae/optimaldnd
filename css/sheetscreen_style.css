@@ -120,7 +120,7 @@ body {
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
-/* This is test number 3 */
+/* Formatting for the race dropdown menu */
 .race {
     width: calc(100% - 22px);
     margin-bottom: 10px;
@@ -133,7 +133,8 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.race select {
+/* Formatting for the background dropdown menu */
+.backgroundselector {
     width: 100%;
     margin-bottom: 0;
     padding: 10px;
@@ -144,8 +145,8 @@ body {
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
-/* FORMATTING FOR BACKGROUND DROP DOWN MENU */
-.backgroundselector {
+/* Formatting for the alignment dropdown menu */
+.alignment {
     width: 100%;
     margin-bottom: 0;
     padding: 10px;

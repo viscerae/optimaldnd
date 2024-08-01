@@ -122,7 +122,7 @@ function changeCardAccentColor(div) {
     const card = div.closest('.card');
     const color = div.style.backgroundColor;
     card.dataset.accentColor = color;
-    card.querySelectorAll('input, textarea').forEach(element => {
+    card.querySelectorAll('input, textarea, select').forEach(element => {
         element.style.borderColor = color;
         element.classList.add('accented');
     });

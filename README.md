@@ -39,13 +39,13 @@ ________________________________________________________________________________
 
     ✧ Spell List (All of them!) 🚧
 
-    ✧ Homebrew Adventures (Some adventures made by us!)🚧
+    ✧ Homebrew Adventures (Some adventures made by us!) 🚧
 
-    ✧ Dice Roller (Roll all dice and all combinations of dice in a single place!)
+    ✧ Dice Roller (Roll all dice and all combinations of dice in a single place!) ❌
 
-    ✧ Background generator (No imagination? No problem we handle it!)
+    ✧ Background generator (No imagination? No problem we handle it!) ❌
 
-    ✧ Other Resources (Will be updated in the future.)
+    ✧ Other Resources (Will be updated in the future.) ❌
 
 
 You can support me at:

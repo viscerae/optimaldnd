@@ -104,10 +104,6 @@ footer {
     bottom: 0;
 }
 
-
-/* Switch styles (Removed since dark mode is always applied) */
-
-
 /* Media queries */
 
 @media (max-width: 768px) {

@@ -2,17 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const spells = [
         {
             name: 'teste',
-            type:'teste',
+            type: 'teste',
             image: '', 
             stats: `teste`,
-            info: `teste`,
+            info: `tesste`,
         },
-
         // Add more spells as needed
     ];
 
     const spellList = document.getElementById('spells-list');
-    const spellsDetails = document.getElementById('spells-details');
+    const spellDetails = document.getElementById('spells-details');
     const searchBar = document.getElementById('search-bar');
 
     function displaySpellDetails(spell) {
@@ -31,11 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${spell.info}
             </div>
         `;
+        // Automatically click the first tab button to open it
         document.querySelector('.tablinks').click();
     }
 
     function populateSpellsList(spells) {
-        spellsList.innerHTML = '';
+        spellList.innerHTML = '';
         spells.forEach(spell => {
             const listItem = document.createElement('li');
             listItem.textContent = spell.name;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBar.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const filteredSpells = spells.filter(spell => spell.name.toLowerCase().includes(searchTerm));
-        populateSpellList(filteredSpells);
+        populateSpellsList(filteredSpells);
     });
 
     populateSpellsList(spells);

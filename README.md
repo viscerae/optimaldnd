@@ -33,9 +33,13 @@ ________________________________________________________________________________
 
 ✧ Implementation of new tools
 
-    ✧ Sheet Screen (tracking PCs sheets on your screen!) ✔️ 🐛 Bug hunting!
+    ✧ Sheet Screen (tracking PCs sheets on your screen!) 🚧 🐛 Bug hunting!
 
-    ✧ DnD Bestiary (Database of all monsters in DnD) ✔️ 🐛 Bug hunting!
+    ✧ DnD Bestiary (Database of all monsters in DnD) 🚧 🐛 Bug hunting!
+
+    ✧ Spell List (All of them!) 🚧
+
+    ✧ Homebrew Adventures (Some adventures made by us!)🚧
 
     ✧ Dice Roller (Roll all dice and all combinations of dice in a single place!)
 

@@ -60,44 +60,49 @@ function saveCards() {
 }
 
 
-function loadCards(input) {
-    const file = input.files[0];
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const data = JSON.parse(event.target.result);
-        const container = document.getElementById('cards-container');
-        container.innerHTML = ''; // Clear existing cards
+function loadCards() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.sav';
+    input.onchange = event => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = e => {
+            const data = JSON.parse(e.target.result);
+            const container = document.getElementById('cards-container');
+            container.innerHTML = ''; // Clear existing cards
+            data.forEach(cardData => {
+                const template = document.getElementById('card-template').content;
+                const clone = document.importNode(template, true);
+                const card = clone.querySelector('.card');
+                
+                card.querySelector('.editable-title').value = cardData.title;
+                card.querySelector('.class').value = cardData.class;
+                card.querySelector('.level').value = cardData.level;
+                card.querySelector('.race').value = cardData.race;
+                card.querySelector('.backgroundselector').value = cardData.backgroundselector;
+                card.querySelector('.alignment').value = cardData.alignment;
+                card.querySelector('.abilities').value = cardData.abilities;
+                card.querySelector('.equipment').value = cardData.equipment;
+                card.querySelector('.notes').value = cardData.notes;
+                card.querySelector('.health-value').value = cardData.health;
+                
+                // Set accent color
+                card.dataset.accentColor = cardData.accentColor || '#28a745';
+                card.querySelectorAll('input, textarea, select').forEach(element => {
+                    element.style.borderColor = card.dataset.accentColor;
+                    element.classList.add('accented');
+                });
 
-        data.forEach(item => {
-            const template = document.getElementById('card-template').content;
-            const clone = document.importNode(template, true);
-            const card = clone.querySelector('.card');
+                container.appendChild(clone);
 
-            card.dataset.accentColor = item.accentColor;
-            card.querySelector('.editable-title').value = item.title;
-            card.querySelector('.class').value = item.class;
-            card.querySelector('.level').value = item.level;
-            card.querySelector('.race').value = item.race;
-            card.querySelector('.backgroundselector').value = item.backgroundselector;
-            card.querySelector('.alignment').value = item.alignment;
-            card.querySelector('.abilities').value = item.abilities;
-            card.querySelector('.equipment').value = item.equipment;
-            card.querySelector('.notes').value = item.notes;
-            card.querySelector('.health-value').value = item.health;
-
-            container.appendChild(clone);
-            
-            // Set the accent color after appending the card
-            const color = item.accentColor;
-            const colorDiv = Array.from(document.querySelectorAll('.settings-menu .color-picker div')).find(div => div.style.backgroundColor === color);
-            if (colorDiv) {
-                changeCardAccentColor(colorDiv);
-            }
-            
-            updateHealth(card.querySelector('.health-value'));
-        });
+                // Update health squares
+                updateHealth(card.querySelector('.health-value'));
+            });
+        };
+        reader.readAsText(file);
     };
-    reader.readAsText(file);
+    input.click();
 }
 
 
@@ -112,24 +117,19 @@ function adjustHealth(button, change) {
     updateHealth(healthValueElement);
 }
 
-function updateHealth(input) {
-    const card = input.closest('.card');
-    let [current, max] = input.value.split('/').map(Number);
-    if (isNaN(current)) current = 0;
-    if (isNaN(max)) max = 100;
-    const healthPercentage = (current / max) * 100;
+function updateHealth(healthInput) {
+    const card = healthInput.closest('.card');
     const healthSquaresContainer = card.querySelector('.health-squares');
-    const cardWidth = card.offsetWidth;
-    const squareSize = Math.max(Math.floor(cardWidth / max - 2), 8); // Adjust size dynamically
+    healthSquaresContainer.innerHTML = ''; // Clear existing squares
+    
+    const maxHealth = parseInt(healthInput.max, 10) || 100; // Assuming max health is set
+    const currentHealth = parseInt(healthInput.value, 10) || 0;
+    const healthPercentage = (currentHealth / maxHealth) * 100;
 
-    // Set the square size as a CSS variable
-    healthSquaresContainer.style.setProperty('--square-size', `${squareSize}px`);
-
-    healthSquaresContainer.innerHTML = '';
-    for (let i = 0; i < max; i++) {
+    for (let i = 0; i < maxHealth / 5; i++) {
         const square = document.createElement('div');
         square.classList.add('health-square');
-        if (i < current) {
+        if (i < currentHealth / 5) {
             if (healthPercentage < 15) {
                 square.classList.add('red');
             } else if (healthPercentage < 40) {
@@ -143,6 +143,7 @@ function updateHealth(input) {
         healthSquaresContainer.appendChild(square);
     }
 }
+
 
 function toggleSettingsMenu(button) {
     const settingsMenu = button.nextElementSibling;

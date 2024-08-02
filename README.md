@@ -33,18 +33,20 @@ ________________________________________________________________________________
 
 ✧ Implementation of new tools
 
-    ✧ Sheet Screen (tracking PCs sheets on your screen!) ✔️ 🐛 Bug hunting!
+    ✧ Sheet Screen (tracking PCs sheets on your screen!) 🚧 🐛 Bug hunting!
 
-    ✧ DnD Bestiary (Database of all monsters in DnD) ✔️ 🐛 Bug hunting!
+    ✧ DnD Bestiary (Database of all monsters in DnD) 🚧 🐛 Bug hunting!
 
-    ✧ Dice Roller (Roll all dice and all combinations of dice in a single place!)
+    ✧ Spell List (All of them!) 🚧
 
-    ✧ Background generator (No imagination? No problem we handle it!)
+    ✧ Homebrew Adventures (Some adventures made by us!) 🚧
 
-    ✧ Other Resources (Will be updated in the future.)
+    ✧ Dice Roller (Roll all dice and all combinations of dice in a single place!) ❌
+
+    ✧ Background generator (No imagination? No problem we handle it!) ❌
+
+    ✧ Other Resources (Will be updated in the future.) ❌
 
 
 You can support me at:
 https://buymeacoffee.com/viscerae
-
-

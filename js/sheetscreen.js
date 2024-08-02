@@ -12,33 +12,53 @@ function deleteCard(button) {
 }
 
 function saveCards() {
-    const cards = Array.from(document.querySelectorAll('.card'));
-    const data = cards.map(card => {
-        return {
-            title: card.querySelector('.editable-title').value,
-            class: card.querySelector('.class').value,
-            level: card.querySelector('.level').value,
-            race: card.querySelector('.race').value,
-            background: card.querySelector('.background').value,
-            alignment: card.querySelector('.alignment').value,
-            abilities: card.querySelector('.abilities').value,
-            equipment: card.querySelector('.equipment').value,
-            notes: card.querySelector('.notes').value,
-            health: card.querySelector('.health-value').value,
-            accentColor: card.dataset.accentColor || '#28a745'
-        };
-    });
+    try {
+        // Select all cards
+        const cards = Array.from(document.querySelectorAll('.card'));
+        
+        if (cards.length === 0) {
+            console.log("No cards found.");
+            return;
+        }
 
-    const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'dnd_player_sheets.sav';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+        // Collect data from each card
+        const data = cards.map(card => {
+            return {
+                title: card.querySelector('.editable-title')?.value || '',
+                class: card.querySelector('.class')?.value || '',
+                level: card.querySelector('.level')?.value || '',
+                race: card.querySelector('.race')?.value || '',
+                background: card.querySelector('.backgroundselector')?.value || '',
+                alignment: card.querySelector('.alignment')?.value || '',
+                abilities: card.querySelector('.abilities')?.value || '',
+                equipment: card.querySelector('.equipment')?.value || '',
+                notes: card.querySelector('.notes')?.value || '',
+                health: card.querySelector('.health-value')?.value || '',
+                accentColor: card.dataset.accentColor || '#28a745'
+            };
+        });
+
+        console.log("Data to be saved:", data);
+
+        // Create a Blob with the data
+        const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'dnd_player_sheets.sav';
+
+        // Trigger the download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        console.log("Download triggered.");
+    } catch (error) {
+        console.error("An error occurred while saving cards:", error);
+    }
 }
+
 
 function loadCards(input) {
     const file = input.files[0];

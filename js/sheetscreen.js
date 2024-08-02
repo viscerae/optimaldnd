@@ -28,7 +28,7 @@ function saveCards() {
                 class: card.querySelector('.class')?.value || '',
                 level: card.querySelector('.level')?.value || '',
                 race: card.querySelector('.race')?.value || '',
-                background: card.querySelector('.backgroundselector')?.value || '',
+                backgroundselector: card.querySelector('.backgroundselector')?.value || '',
                 alignment: card.querySelector('.alignment')?.value || '',
                 abilities: card.querySelector('.abilities')?.value || '',
                 equipment: card.querySelector('.equipment')?.value || '',
@@ -76,7 +76,7 @@ function loadCards(input) {
             card.querySelector('.class').value = item.class;
             card.querySelector('.level').value = item.level;
             card.querySelector('.race').value = item.race;
-            card.querySelector('.background').value = item.background;
+            card.querySelector('.backgroundselector').value = item.backgroundselector;
             card.querySelector('.alignment').value = item.alignment;
             card.querySelector('.abilities').value = item.abilities;
             card.querySelector('.equipment').value = item.equipment;

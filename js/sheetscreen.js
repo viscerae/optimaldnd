@@ -66,13 +66,11 @@ function loadCards(input) {
     reader.onload = function(event) {
         const data = JSON.parse(event.target.result);
         const container = document.getElementById('cards-container');
-        container.innerHTML = ''; // Clear existing cards
-
+        container.innerHTML = '';
         data.forEach(item => {
             const template = document.getElementById('card-template').content;
             const clone = document.importNode(template, true);
             const card = clone.querySelector('.card');
-
             card.dataset.accentColor = item.accentColor;
             card.querySelector('.editable-title').value = item.title;
             card.querySelector('.class').value = item.class;
@@ -84,22 +82,13 @@ function loadCards(input) {
             card.querySelector('.equipment').value = item.equipment;
             card.querySelector('.notes').value = item.notes;
             card.querySelector('.health-value').value = item.health;
-
             container.appendChild(clone);
-            
-            // Set the accent color after appending the card
-            const color = item.accentColor;
-            const colorDiv = Array.from(document.querySelectorAll('.settings-menu .color-picker div')).find(div => div.style.backgroundColor === color);
-            if (colorDiv) {
-                changeCardAccentColor(colorDiv);
-            }
-            
+            changeCardAccentColor(card.querySelector(`.settings-menu .color-picker div[style*="${item.accentColor}"]`));
             updateHealth(card.querySelector('.health-value'));
         });
     };
     reader.readAsText(file);
 }
-
 
 function adjustHealth(button, change) {
     const card = button.closest('.card');
@@ -152,22 +141,12 @@ function toggleSettingsMenu(button) {
 function changeCardAccentColor(div) {
     const card = div.closest('.card');
     const color = div.style.backgroundColor;
-
-    // Convert RGB to Hex
-    const rgbToHex = (rgb) => {
-        let [r, g, b] = rgb.match(/\d+/g).map(Number);
-        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
-    };
-    
-    const hexColor = rgbToHex(color);
-
-    card.dataset.accentColor = hexColor;
+    card.dataset.accentColor = color;
     card.querySelectorAll('input, textarea, select').forEach(element => {
-        element.style.borderColor = hexColor;
+        element.style.borderColor = color;
         element.classList.add('accented');
     });
 }
-
 
 function updateCardTitle(input) {
     const card = input.closest('.card');

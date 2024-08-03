@@ -11,10 +11,10 @@
     <div class="button-container">
         <button class="button" onclick="addCard()">Add Player Card</button>
         <button class="button" onclick="saveCards()">Save Cards</button>
+        <button onclick="loadCards()">Load Cards</button>
         <input type="file" id="load-file" style="display: none;" onchange="loadCards(this)">
-        <button class="button" onclick="document.getElementById('load-file').click()">Load Cards</button>
     </div>
-
+    <div id="cards-container">
     <ul id="cards-container"></ul>
 
     <template id="card-template">
@@ -261,6 +261,7 @@
             </div>
             <div class="health-squares"></div>
         </li>
+    </div>
     </template>
     <script src="/js/sheetscreen.js"></script>
 </body>

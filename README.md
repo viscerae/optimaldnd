@@ -47,6 +47,6 @@ ________________________________________________________________________________
 
     ✧ Other Resources (Will be updated in the future.) ❌
 
-
+I am currently absent for a while, I will pick the project back up next month.
 You can support me at:
 https://buymeacoffee.com/viscerae
